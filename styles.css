@@ -1,0 +1,17 @@
+body {
+	font-family: "Input Sans", monospace;
+}
+
+#text {
+	margin: 0 auto;
+  padding: 7em 0;
+
+  max-width: 650px;
+  line-height: 1.5;
+
+  color: #555;
+}
+
+#text p {
+  margin: 2em 0;
+}
