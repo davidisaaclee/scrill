@@ -205,4 +205,4 @@ function requestText(path) {
 	request.send();
 }
 
-window.onload = function () { requestText("lorem.txt") };
+window.onload = function () { requestText("Text/lorem.txt") };
