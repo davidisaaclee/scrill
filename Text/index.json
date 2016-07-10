@@ -1,5 +1,6 @@
 {
-  files: [
-    "lorem.txt"
+  "files": [
+    "lorem.txt",
+    "alice.txt"
   ]
 }
