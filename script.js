@@ -193,16 +193,35 @@ function display (text, node) {
 	}).forEach(node.appendChild, node);
 }
 
-function requestText(path) {
-  var request = new XMLHttpRequest();
+function requestText (path) {
+	request(path, "GET", function (responseText) {
+		display(responseText, document.querySelector("#text"));
+	});
+}
+
+function requestFileIndex () {
+	request("Text/index.json", "GET", function (responseText) {
+		var obj = JSON.parse(responseText);
+
+		if (obj.files !== undefined) {
+			obj.files.forEach(function (fileName) {
+				requestText("Text/" + fileName);
+			});
+		}
+	});
+}
+
+function request (path, method, success) {
+	var request = new XMLHttpRequest();
 	request.onreadystatechange = function () {
 	  if (request.readyState == 4 && request.status == 200) {
-	    display(request.responseText, document.querySelector("#text"));
+	    success(request.responseText);
 	  }
 	};
 
-	request.open("GET", path, true);
+	request.open(method, path, true);
 	request.send();
 }
 
-window.onload = function () { requestText("Text/lorem.txt") };
+// window.onload = function () { requestText("Text/lorem.txt") };
+window.onload = requestFileIndex;
