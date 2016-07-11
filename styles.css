@@ -9,9 +9,13 @@ body {
   max-width: 650px;
   line-height: 1.5;
 
-  color: #555;
+  color: #888;
 }
 
 #text p {
   margin: 2em 0;
+}
+
+#text .selected {
+  color: #000;
 }
