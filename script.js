@@ -223,5 +223,4 @@ function request (path, method, success) {
 	request.send();
 }
 
-// window.onload = function () { requestText("Text/lorem.txt") };
 window.onload = requestFileIndex;
